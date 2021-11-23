@@ -1,0 +1,69 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-image: url(../images/colores.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+}
+
+header{
+	width: 50%;
+	height: 100%;
+	padding: 5% 5%;
+	text-align: center;
+	display: inline-block;
+	margin: 1%;
+}
+
+h1{
+	color: #d9d9d9;
+	font: 700% "didot";
+	padding: 0px 50px;
+}
+
+p{
+	color: #d9d9d9;
+	font: 110% "perpetua";
+	padding: 0px 50px;
+}
+
+h2{
+	text-align: center;
+}
+
+
+#formulario{
+	display: inline-block;
+	width: 15%;
+	background-color: #FFFFFF;
+	opacity: 0.8;
+	margin: 1%;
+	padding: 100px;
+	text-align: center;
+	border-radius: 20px;
+}
+
+
+label, input, button{
+	margin: 10% 10% 20% 10%;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+footer{
+	display: block;
+}
+a{
+	margin-top: 100px;
+	text-decoration: none;
+	color: #000000;
+}
+

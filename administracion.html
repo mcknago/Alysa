@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Alysa</title>
+	<link rel="stylesheet" href="css/inicio.css">
+</head>
+<body>
+<header>
+		<h1>Alysa</h1>
+	<p> Sistema para la gestión de casos de COVID-19 </p>
+	
+</header>
+
+<section id="formulario">
+	<h2> Registro de usuario </h2>
+	<form action="consultaUsuario.php" method="POST">
+	<input type="text" id="username" maxlength="20" placeholder="Nombre">
+	<br>
+	<input type="text" id="userlastname" maxlength="20" placeholder="Apellido">
+	<br>
+
+	<input type="text" id="cedula" maxlength="10" placeholder="Cédula">
+	<br>
+
+	<select name="rol" id="rol">
+	<option value="none">Seleccionar rol...</option>
+  	<option value="Medico">Médico</option>
+  	<option value="Ayudante">Ayudante</option>
+	</select>
+	<br>
+
+	<input type="text" id="user" maxlength="10" placeholder="Nombre de usuario">
+	<br>
+
+	<input type="password" id="user" maxlength="10" placeholder="Contraseña">
+	</form>
+
+	<button type="button" id="registrar">
+		Registrarme
+	</button>	
+	<br>
+	<a href="index.html">Ya tengo una cuenta.</a>
+
+
+</section>
+</body>
+</html>
