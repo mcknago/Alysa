@@ -5,28 +5,34 @@
 
 body{
 	background-image: url(../images/colores.jpg);
-	width: 100vw;
-	height: 120vh;
+  	height: auto;
+  	width: 100%;
 	background-repeat: no-repeat;
-	background-size: cover;
 	background-position: center;
+
 }
 
 header{
-	width: 100%;
-	padding: 1% 1%;
-	text-align: center;
+	width: 50%;
+	padding: 5% 5%;
+	display: inline-block;
 	margin: 1%;
 }
 
 h1{
 	color: #d9d9d9;
 	font: 700% "didot";
+	padding: 0px 50px;
+	justify-content: center;
+	text-align: center;
 }
 
 p{
 	color: #d9d9d9;
 	font: 110% "perpetua";
+	padding: 0px 50px;
+	justify-content: center;
+	text-align: center;
 }
 
 h2{
@@ -35,20 +41,19 @@ h2{
 
 
 #formulario{
-	width: 15%;
-	height: auto;
-	position: relative;
-	text-align: center;
+	display: inline-block;
+	width: 25%;
 	background-color: #FFFFFF;
 	opacity: 0.8;
-	margin: 2% 50% 30% 40%;
-	padding: 4%;
+	margin: 1%;
+	padding: 10% 5%;
+	text-align: center;
 	border-radius: 20px;
 }
 
 
 label, input, button{
-	margin: 10% 10% 2% 10%;
+	margin: 10% 10% 20% 10%;
 }
 
 input {
@@ -60,8 +65,24 @@ footer{
 	display: block;
 }
 a{
-	margin-top: 100px;
 	text-decoration: none;
 	color: #000000;
+}
+
+@media only screen and (max-width: 1000px) {
+	header{
+		width: 48%;
+		padding: 0% 25%;
+
+	}
+	#formulario{
+		width: 30%;
+		margin: 1%;
+		padding: 10% 5%;
+		margin-left: 30%;
+		margin-right: 30%;
+	}
+
+
 }
 
