@@ -5,31 +5,28 @@
 
 body{
 	background-image: url(../images/colores.jpg);
+	width: 100vw;
+	height: 120vh;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-
 }
 
 header{
-	width: 50%;
-	height: 100%;
-	padding: 5% 5%;
+	width: 100%;
+	padding: 1% 1%;
 	text-align: center;
-	display: inline-block;
 	margin: 1%;
 }
 
 h1{
 	color: #d9d9d9;
 	font: 700% "didot";
-	padding: 0px 50px;
 }
 
 p{
 	color: #d9d9d9;
 	font: 110% "perpetua";
-	padding: 0px 50px;
 }
 
 h2{
@@ -38,19 +35,20 @@ h2{
 
 
 #formulario{
-	display: inline-block;
 	width: 15%;
+	height: auto;
+	position: relative;
+	text-align: center;
 	background-color: #FFFFFF;
 	opacity: 0.8;
-	margin: 1%;
-	padding: 100px;
-	text-align: center;
+	margin: 2% 50% 30% 40%;
+	padding: 4%;
 	border-radius: 20px;
 }
 
 
 label, input, button{
-	margin: 10% 10% 20% 10%;
+	margin: 10% 10% 2% 10%;
 }
 
 input {
