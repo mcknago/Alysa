@@ -30,4 +30,3 @@
     return (strlen($num) >= 10) ? $num : zeropad("0" . $num);
     }
     ?>
-    <script src="Registro.js"></script>;
