@@ -5,10 +5,10 @@
 
 body{
 	background-image: url(../images/colores.jpg);
-  	height: auto;
-  	width: 100%;
-	background-repeat: no-repeat;
-	background-position: center;
+  	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	background-color: blueviolet;
 
 }
 
@@ -53,7 +53,7 @@ h2{
 
 
 label, input, button{
-	margin: 10% 10% 20% 10%;
+	margin: 1% 1% 2% 1%;
 }
 
 input {
