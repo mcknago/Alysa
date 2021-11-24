@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Alysa</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="css/Registro.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"> </script>
+
+</head>
+<body>
+<!-- <header>
+		<h1>Alysa</h1>
+	<p> Sistema para la gestión de casos de COVID-19 </p>
+	
+</header> -->
+
+<section id="formulario">
+	<h2> Registro de Caso </h2>
+    <div class="cbp-mc-form">
+        <div class="cbp-mc-column">
+            <label for="first_name">Nombres</label>
+            <input type="text" id="first_name" name="first_name" placeholder="Nombre..." required>
+            <label for="last_name">Apellido</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Apellido..." required>
+            <label for="Cedula">Cedula</label>
+            <input type="text" id="Cedula" name="Cedula" placeholder="Cedula..." required>
+
+        </div>
+        <div class="cbp-mc-column">
+        <label for="Sexo">Sexo</label>
+            <select id="Sexo" name="Sexo" required>
+                <option value=''>Selecciona sexo</option>
+                <option value='Masculino'>Masculino</option>
+                <option value='Femenino'>Femenino</option>
+            </select>
+            <label for="FechaNac">Fecha de Nacimiento</label>
+            <input type="date" id="FechaNac" name="FechaNac" required>
+            <label for="DirecRes">Dirección residencia</label>
+            <input type="text" id="DirecRes" name="DirecRes" placeholder="Dirección de Residencia..." required>
+        
+        </div>
+        <div class="cbp-mc-column">
+            <label for="DirecTrab">Dirección Trabajo</label>
+            <input type="text" id="DirecTrab" name="DirecTrab" placeholder="Dirección de Trabajo..." required>
+        
+            <label>Resultado Examen</label>
+            <select id="examen" name="examen" required>
+                <option value=''>Resultado examen</option>
+                <option value='Positivo'>Positivo</option>
+                <option value='Negativo'>Negativo</option>
+            </select>
+            <label for="FechaEx">Fecha de Examen</label>
+            <input type="date" id="FechaEx" name="FechaEx" required>
+        </div>
+        <div class="cbp-mc-submit-wrap"><input class="cbp-mc-submit" type="submit" id='Registrar' value="Registrar caso" /></div>
+
+        <div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+				<label>Caso registrado con exito</label>
+                <div>Código de Caso</div>
+                <div id="Codigo">0000000000</div>
+			</div>
+		</div>
+
+        <div class="overlay" id="overlay2">
+			<div class="popup" id="popup2">
+				<a href="#" id="btn-cerrar-popup2" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+				<label>Por favor, Llene todos los campos</label>
+			</div>
+		</div>
+
+
+    </form>
+</section>
+</body>
+
+<script src="Registro.js"></script>;
+
+
+</html>
