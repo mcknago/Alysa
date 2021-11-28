@@ -12,12 +12,24 @@
 	
 <header>
 	<h1>Alysa</h1>
-	<button type="button" class="btn_header" onclick="location='inicio_sesion.html'">Iniciar sesión
+	<button type="button" id="Volver" class= "btn_header" onclick="location='index.html'">
+		Volver a la pantalla principal
 	</button>
 	<p> Sistema para la gestión de casos de COVID-19 </p>
 </header>	
-</div>
-</body>
+
+<section id="formulario">
+	<h2> Inicio de sesión </h2>
+	<form action="redirigir.php" method="POST">
+	<input type="text" id="usuario" name="usuario" maxlength="20" placeholder="Usuario" autocomplete="off">
+	<br>
+	<input type="password" id="contra" name="contra" maxlength="20" placeholder="Contraseña" autocomplete="off">
+	<br>
+	<button type="submit" id="ingresar">
+		Ingresar
+	</button>
+	</form>	
+</section>
 
 </body>
 </html>
