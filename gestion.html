@@ -20,7 +20,7 @@
   
     <section>
         <div class="container mt-5 mb-5">
-        <form action="">
+
         <label for="dato"><h3>Consulta tu caso</h3></label>
         <div class="d-flex">
         <select class="form-select" aria-label="Default select example">
@@ -31,18 +31,17 @@
               </select>
               
         <input type="text" id="dato" />
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" values="Enviar" id='Enviar'>
             Enviar
         </button>
         </div>         
-        </form>
         </div>    
 
     </section>
 
     <section>
     <div class="container mt-5 mb-5">
-    <table class="table table-bordered">
+    <table class="table table-bordered" hidden id="tab_info">
       
         <thead>
             <tr class="table-info">
@@ -60,15 +59,15 @@
         </thead>
         <tbody>
             <tr class="table">
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td><div id='Nombre'></div></td>
+            <td><div id='Apellido'></div></td>
+            <td><div id='Cedula'></div></td>
+            <td><div id='Sexo'></div></td>
+            <td><div id='FechaNac'></div></td>
+            <td><div id='Direcres'></div></td>
+            <td><div id='DirecTrab'></div></td>
+            <td><div id='Exam'></div></td>
+            <td><div id='FechaEx'></div></td>
           </tr>
         </tbody>
         
@@ -80,7 +79,7 @@
         <div class="container" style="width: 30rem;">
         
         <div class="d-flex">
-        <table class="table table-bordered mr-2">
+        <table class="table table-bordered mr-2" hidden id="tab_estados">
           
             <thead>
                 <tr class="table-info">
@@ -106,7 +105,7 @@
             <div class="d-flex">    
             <form action="">       
 
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" hidden id='act_boton'>
                 Actualizar estado
             </button>
         </div>
@@ -114,11 +113,93 @@
 
 
      </section>   
+     <br>
+     <section>
+       <center>
+      <div class="container-sm" style="width: 20rem;">
+        
+        <div class="d-flex">
+        <select class="form-select" aria-label="Default select example" hidden id="selec_estados">
+                <option selected>Selecciona el nuevo estado</option>
+                <option value="1">En Tratamiento Casa</option>
+                <option value="2">En tratamiento Hospital</option>
+                <option value="3">En UCI</option>
+                <option value="3">Curado</option>
+                <option value="3">Fallecido</option>
+              </select>
+
+
+      </div>
+      </div>
+      </center>
+     
+
+
+   </section>   
+   <br>
+
+   
     
 
 
 </body> 
-
-	
-
 </html>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+const Enviar = document.getElementById('Enviar');
+Enviar.addEventListener('click', (event) => {
+
+
+$.post('gestion.php', {dato: document.getElementById('dato').value}, function(data) {  
+
+info=[];
+
+
+Tabla= JSON.parse(data);
+
+info.push(Tabla);
+
+var Nombre = info[1];
+var Apellido = info[2];
+var Cedula = info[3];
+var Sexo = info[4];
+var FechaNac = info[5];
+var Direcres= info[6];
+var DirecTrab = info[7];
+var Exam = info[8];
+var FechaEx = info[9];
+
+$("#Nombre").text(Nombre);
+$("#Apellido").text(Apellido);
+$("#Cedula").text(Cedula);
+$("#Sexo").text(Sexo);
+$("#FechaNac").text(FechaNac);
+$("#Direcres").text(Direcres);
+$("#DirecTrab").text(DirecTrab);
+$("#Exam").text(Exam);
+$("#FechaEx").text(FechaEx);
+
+
+
+$("#tab_info").show("slow");
+$("#tab_estados").show("slow");
+$("#act_boton").show("slow");
+
+const Act = document.getElementById('act_boton');
+Act.addEventListener('click', (event) => {
+
+
+$("#selec_estados").show("slow");
+
+
+}); 
+
+});
+
+});
+
+});
+
+</script>
