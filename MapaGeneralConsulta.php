@@ -3,8 +3,8 @@
     include 'Config.php';
     $conexion = new mysqli($Host, $Usuario, $Clave, 'Alysa');
     $sql = "SELECT casos.direcRes, casos.direcTrab, estados.estado FROM casos, estados 
-    WHERE estados.fecha IN (SELECT MAX(fecha) FROM estados GROUP BY idCaso) AND casos.id=estados.idCaso
-    ORDER BY estados.IDestado asc 
+    WHERE estados.IDestado IN (SELECT MAX(IDestado) FROM estados GROUP BY idCaso) AND casos.id=estados.idCaso
+    ORDER BY estados.IDestado desc;
     ";
     $result=$conexion->query($sql);
     if ($result->num_rows > 0) {
