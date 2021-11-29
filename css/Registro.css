@@ -6,28 +6,43 @@ body{
 	background-color: blueviolet;
     text-align: center;
     height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.active{
+	background-color:#360030;
+	opacity: 0.9;
+}
+nav a{
+	display: inline-block;
+	text-align: center;
+	padding: 10px 50px;
+	text-decoration: none;
+	margin-right: 50px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	border-radius: 5px;
+	font: 150% "perpetua";
+	background-color:#6a0655;
+	color: #d9d9d9;
+}
+
+nav a:hover {
+	background-color: #974084;
+	cursor: pointer;
 }
 
 header{
-    width: 48%;
-
-    padding: 0 25%;
-	display: inline-block;
-	margin: 1%;
-}
-
-h1{
-	color: #d9d9d9;
-	font: 700% "didot";
-	justify-content: center;
+	width: 100%;
+	background-color: #6a0655;
 	text-align: center;
+	padding: 5px;
 }
+
 
 p{
 	color: #d9d9d9;
-	font: 110% "perpetua";
-	justify-content: center;
-	text-align: center;
+	font: 100% "perpetua";
 }
 
 h2{
@@ -229,3 +244,36 @@ width: 100%;
 	color: #000;
 }
 .popup.active {	transform: scale(1); opacity: 1; }
+
+.btn_header{
+	float: right;
+	display: inline;
+	text-align: center;
+	padding: 10px 50px;
+	text-decoration: none;
+	margin-right: 100px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	border-radius: 5px;
+	font: 150% "perpetua";
+	background-color:#6a0655;
+	color: #d9d9d9;
+	border:  none;
+}
+
+.btn_header:hover {
+	background-color: #974084;
+	cursor: pointer;
+}
+
+h1{
+	display: inline-block;
+	color: #d9d9d9;
+	font: 300% "didot";
+	text-align: center;
+
+}
+p{
+	color: #d9d9d9;
+	font: 100% "perpetua";
+}

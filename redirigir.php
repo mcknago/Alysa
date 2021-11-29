@@ -47,7 +47,7 @@ function direccion(){
 				header('location: inicio_sesion.html');
 				break;
 			case 3:
-				header('location: inicio_sesion.html');
+				header('location: Registro.html');
 				break;
 			default:
 				header('location: inicio_sesion.html');

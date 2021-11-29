@@ -12,11 +12,11 @@
     $Examen=$_POST['Examen'];
     $FechaEx=$_POST['FechaEx'];
 
-    $sql = "INSERT INTO `datos` (Nombre,Apellido,Cedula,Sexo,FechaNac,DirecRes,DirecTrab,Exam,FechaEx)
+    $sql = "INSERT INTO `casos` (nombre,apellido,cedula,sexo,fechaNac,direcRes,direcTrab,exam,fechaEx)
     VALUES('$Nombre','$Apellido','$Cedula','$Sexo','$FechaNac','$DirecRes','$DirecTrab','$Examen','$FechaEx')";
     $conexion->query($sql);
     
-    $sql = "SELECT id FROM datos ORDER BY id DESC limit 1";
+    $sql = "SELECT id FROM casos ORDER BY id DESC limit 1";
     $result=$conexion->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {

@@ -6,7 +6,35 @@
 h2{
 	text-align: center;
 }
+.active{
+	background-color:#360030;
+	opacity: 0.9;
+}
+nav a{
+	display: inline-block;
+	text-align: center;
+	padding: 10px 10px;
+	text-decoration: none;
+	margin-right: 50px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	border-radius: 5px;
+	font: 150% "perpetua";
+	background-color:#6a0655;
+	color: #d9d9d9;
+}
 
+nav a:hover {
+	background-color: #974084;
+	cursor: pointer;
+}
+
+header{
+	width: 100%;
+	background-color: #6a0655;
+	text-align: center;
+	padding: 5px;
+}
 
 #formulario{
 	width: 15%;
@@ -30,30 +58,20 @@ input {
   border-bottom: 2px solid black;
 }
 
-a{
-	margin-top: 100px;
-	text-decoration: none;
-	color: #000000;
-}
-
-
-header{
-	width: 100%;
-	padding: 1%;
-	background-color: #6a0655;
-}
 .btn_header{
-	display: inline;
 	float: right;
-	position: absolute;
-	right: 1%;
-	width: 20%;
-	height: auto;
+	display: inline;
+	text-align: center;
+	padding: 10px 50px;
+	text-decoration: none;
+	margin-right: 100px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	border-radius: 5px;
 	font: 150% "perpetua";
 	background-color:#6a0655;
 	color: #d9d9d9;
-	border: none;
-	 vertical-align: middle;
+	border:  none;
 }
 
 .btn_header:hover {
@@ -70,9 +88,11 @@ body{
 	background-position: center;
 }
 h1{
-	display: inline;
+	display: inline-block;
 	color: #d9d9d9;
 	font: 300% "didot";
+	text-align: center;
+
 }
 p{
 	color: #d9d9d9;
