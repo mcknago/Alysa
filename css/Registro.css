@@ -37,8 +37,40 @@ header{
 	background-color: #6a0655;
 	text-align: center;
 	padding: 5px;
+	margin-bottom: 1%;
+	box-sizing: border-box;
+	}
+b{
+	display: inline-block;
+	color: #d9d9d9;
+	font: 300% "didot";
+	text-align: center;
+	width: 100%;
 }
 
+.logo{
+	float:left;
+	width: 60%;
+    box-sizing: border-box;
+	align-items: center;
+	margin-left: 20%;
+	margin-bottom: 10px;
+
+}
+.logo b{
+	display: inline-block;
+	color: #d9d9d9;
+	font: 300% "didot";
+	text-align: center;
+	width: 100%;
+}
+	
+.logo a{
+	color: #d9d9d9;
+	font: 100% "perpetua";}
+#subtitulo{
+	color: #d9d9d9;
+	font: 100% "perpetua";}
 
 p{
 	color: #d9d9d9;
@@ -246,19 +278,19 @@ width: 100%;
 .popup.active {	transform: scale(1); opacity: 1; }
 
 .btn_header{
-	float: right;
-	display: inline;
+	
+	width: 15%;
 	text-align: center;
-	padding: 10px 50px;
+	padding: 10px 2%;
 	text-decoration: none;
-	margin-right: 100px;
-	margin-bottom: 20px;
 	font-weight: bold;
 	border-radius: 5px;
 	font: 150% "perpetua";
 	background-color:#6a0655;
 	color: #d9d9d9;
 	border:  none;
+	box-sizing: border-box;
+	margin-right: 5%;
 }
 
 .btn_header:hover {
@@ -276,4 +308,12 @@ h1{
 p{
 	color: #d9d9d9;
 	font: 100% "perpetua";
+}
+
+.linea{
+	display: flex;
+   	align-items: center;
+	width: 100%;
+	height: auto;
+	text-align: center;
 }
