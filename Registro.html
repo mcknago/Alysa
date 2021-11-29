@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8">
 	<title>Alysa</title>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet"> 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="css/Registro.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"> </script>
@@ -11,9 +10,14 @@
 </head>
 <body>
 <header>
-    <h1>Alysa</h1>
-    <button type="submit" class="btn_header" action="cerrar_sesion.php" method="POST" onclick="location='index.html'">Cerrar sesión</button>
-    <p> Sistema para la gestión de casos de COVID-19 </p>
+        <div class="linea">
+            <div class='logo'>
+                <b>Alysa</b>
+                <a> Sistema para la gestión de casos de COVID-19 </a>
+            </div>
+        <button type="submit" class="btn_header" action="cerrar_sesion.php" method="POST" onclick="location='index.html'">Cerrar sesión</button>
+      
+        </div>
         <nav>
             <a href="Registro.html" id="a1" class = "active">Registro de caso</a>
             <a href="gestion.html" id="a2">Gestionar caso</a>
