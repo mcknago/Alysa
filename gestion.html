@@ -89,7 +89,7 @@
     </section>
 
     <section>
-        <div class="container" style="width: 40%;" id="tab_estados" >
+        <div class="container" style="width: 50%;" id="tab_estados" >
         
         <div class="d-flex" >
           <style>
@@ -98,7 +98,8 @@
             }
             </style>
             
-            <label align = "center" for="Mensaje"><h1 style="color: aliceblue; font-size: large;">Estados y fecha de modificación:</h1></label>
+            <label align = "center" for="Mensaje"><h1 style="color: aliceblue; font-size: large;">
+              Estados y fecha de modificación:</h1></label>
             
             <center>
             <textarea  resize: none; readonly id="estados" name="Mensaje" rows="5" cols="50">
@@ -193,13 +194,10 @@ $("#Exam").text(Exam);
 $("#FechaEx").text(FechaEx);
 
 Estado='';
-fechaes='';
 for(i=0;i<info[0].length;i++){
-  var Estado = info[0][i][10]+'<br>'+Estado;
-  var fechaes = info[0][i][11]+"\n"+fechaes;
+  var Estado =Estado+info[0][i][10]+' '+ info[0][i][11]+'\n';
 }
 $("#estados").text(Estado);
-  $("#estados").text(fechaes);
 
 });
 };
@@ -237,13 +235,10 @@ $("#Exam").text(Exam);
 $("#FechaEx").text(FechaEx);
 
 Estado='';
-fechaes='';
 for(i=0;i<info[0].length;i++){
-  var Estado = info[0][i][10]+'<br>'+Estado;
-  var fechaes = info[0][i][11]+"\n"+fechaes;
+  var Estado =Estado+info[0][i][10]+' '+ info[0][i][11]+'\n';
 }
 $("#estados").text(Estado);
-  $("#estados").text(fechaes);
 
 });
 
@@ -285,11 +280,9 @@ Estado='';
 fechaes='';
 
 for(i=0;i<info[0].length;i++){
-  var Estado = info[0][i][10]+'<br>'+Estado;
-  var fechaes = info[0][i][11]+"\n"+fechaes;
+  var Estado =Estado+info[0][i][10]+' '+ info[0][i][11]+'\n';
 }
 $("#estados").text(Estado);
-  $("#estados").text(fechaes);
 
 });
 };
