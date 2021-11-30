@@ -50,8 +50,8 @@
 
         </div>
         <nav>
-            <a href="Registro.html" id="a1" class = "active">Registro de caso</a>
-            <a href="gestion.html" id="a2">Gestionar caso</a>
+            <a href="MapaGeneral.php" id="a1" class = "active">Mapa General</a>
+            <a href="Busqueda.html" id="a2">Buscar usuario</a>
         </nav>
 
 	</header>
