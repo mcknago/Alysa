@@ -205,7 +205,7 @@ $("#estados").text(Estado);
 if(type_dato==2){
 
 $.post('consultaID.php', {dato: document.getElementById('dato').value}, function(data) {  
-
+console.log(data);
 info=[];
 
 
@@ -224,7 +224,7 @@ var Exam = info[0][0][8];
 var FechaEx = info[0][0][9];
 
 
-$("#Nombre").text()=Nombre;
+$("#Nombre").text(Nombre);
 $("#Apellido").text(Apellido);
 $("#Cedula").text(Cedula);
 $("#Sexo").text(Sexo);
