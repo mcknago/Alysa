@@ -34,7 +34,7 @@
     <section>
         <div class="container mt-5 mb-5">
 
-        <label for="dato"><h3>Consulta tu caso</h3></label>
+        <label for="dato"><h1 style="color: aliceblue; font-size: x-large;">Consulta tu caso</h1></label>
         <div class="d-flex">
         <select class="form-select" aria-label="Default select example" id="selec_dato">
                 <option selected>Selecciona tipo de dato</option>
@@ -89,26 +89,23 @@
     </section>
 
     <section>
-        <div class="container" style="width: 30rem;" id="tab_estados" >
+        <div class="container" style="width: 40%;" id="tab_estados" >
         
         <div class="d-flex" >
-        <table class="table table-bordered mr-2" >
-          
-            <thead>
-                <tr class="table-info">
-                <th scope="col">Estado</th>
-                <th scope="col">Fecha de modificación</th>
-                
-              </tr>
-            </thead>
-            <tbody>
-                <tr class="table-info">
-                <td><div id='estado'></div></td>
-                <td><div id='fechaEs'></div></td>
-              </tr>
-            </tbody>
+          <style>
+            textarea {
+              resize: none;
+            }
+            </style>
             
-          </table>
+            <label align = "center" for="Mensaje"><h1 style="color: aliceblue; font-size: large;">Estados y fecha de modificación:</h1></label>
+            
+            <center>
+            <textarea  resize: none; readonly id="estados" name="Mensaje" rows="5" cols="50">
+            
+            </textarea>
+            <center>
+            <br>
         </div>
         </div>
         </section>
@@ -183,8 +180,7 @@ var Direcres= info[0][0][6];
 var DirecTrab = info[0][0][7];
 var Exam = info[0][0][8];
 var FechaEx = info[0][0][9];
-var Estado = info[0][0][10];
-var fechaes = info[0][0][11];
+
 
 $("#Nombre").text(Nombre);
 $("#Apellido").text(Apellido);
@@ -195,17 +191,15 @@ $("#Direcres").text(Direcres);
 $("#DirecTrab").text(DirecTrab);
 $("#Exam").text(Exam);
 $("#FechaEx").text(FechaEx);
-$("#estado").text(Estado);
-$("#fechaEs").text(fechaes);
+
 Estado='';
 fechaes='';
-
 for(i=0;i<info[0].length;i++){
   var Estado = info[0][i][10]+'<br>'+Estado;
   var fechaes = info[0][i][11]+"\n"+fechaes;
 }
-$("#estado").text(Estado);
-$("#fechaEs").text(fechaes);
+$("#estados").text(Estado);
+  $("#estados").text(fechaes);
 
 });
 };
@@ -230,8 +224,7 @@ var Direcres= info[0][0][6];
 var DirecTrab = info[0][0][7];
 var Exam = info[0][0][8];
 var FechaEx = info[0][0][9];
-var Estado = info[0][0][10];
-var fechaes = info[0][0][11];
+
 
 $("#Nombre").text()=Nombre;
 $("#Apellido").text(Apellido);
@@ -242,17 +235,15 @@ $("#Direcres").text(Direcres);
 $("#DirecTrab").text(DirecTrab);
 $("#Exam").text(Exam);
 $("#FechaEx").text(FechaEx);
-$("#estado").text(Estado);
-$("#fechaEs").text(fechaes);
+
 Estado='';
 fechaes='';
-
 for(i=0;i<info[0].length;i++){
   var Estado = info[0][i][10]+'<br>'+Estado;
   var fechaes = info[0][i][11]+"\n"+fechaes;
 }
-$("#estado").text(Estado);
-$("#fechaEs").text(fechaes);
+$("#estados").text(Estado);
+  $("#estados").text(fechaes);
 
 });
 
@@ -297,8 +288,8 @@ for(i=0;i<info[0].length;i++){
   var Estado = info[0][i][10]+'<br>'+Estado;
   var fechaes = info[0][i][11]+"\n"+fechaes;
 }
-$("#estado").text(Estado);
-  $("#fechaEs").text(fechaes);
+$("#estados").text(Estado);
+  $("#estados").text(fechaes);
 
 });
 };
