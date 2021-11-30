@@ -1,16 +1,12 @@
 <?php 
     include 'config.php';
-    if(isset($_POST['new_estado'], $_POST['date'])){
+    if(isset($_POST['new_estado'])){
     $conexion = new mysqli($Host, $Usuario, $Clave, 'Alysa');
     $new_estado=$_POST['new_estado'];
-    $date=$_POST['date'];
+    $Caso=$_POST['caso'];
 
-    $sql = "SELECT * FROM casos, estados WHERE id = $dato";
-    $result = $conexion->query($sql);
-
-
-    $sql = "INSERT INTO `estados` (estado,fecha)
-    VALUES('$new_estado','$date')";
+    $sql = "INSERT INTO `estados` (estado,fecha,idCaso)
+    VALUES('$new_estado',NOW(),'$Caso')";
     $conexion->query($sql);
-
+    echo $new_estado;}
 ?>

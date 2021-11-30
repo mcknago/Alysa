@@ -53,8 +53,8 @@
     </section>
 
     <section>
-    <div class="container mt-5 mb-5">
-    <table class="table table-bordered"  id="tab_info">
+    <div class="container mt-5 mb-5" id="tab_info" >
+    <table class="table table-bordered" >
       
         <thead>
             <tr class="table-info">
@@ -71,7 +71,7 @@
           </tr>
         </thead>
         <tbody>
-            <tr class="table">
+            <tr class="table-info">
             <td><div id='Nombre'></div></td>
             <td><div id='Apellido'></div></td>
             <td><div id='Cedula'></div></td>
@@ -89,10 +89,10 @@
     </section>
 
     <section>
-        <div class="container" style="width: 30rem;">
+        <div class="container" style="width: 30rem;" id="tab_estados" >
         
-        <div class="d-flex">
-        <table class="table table-bordered mr-2"  id="tab_estados">
+        <div class="d-flex" >
+        <table class="table table-bordered mr-2" >
           
             <thead>
                 <tr class="table-info">
@@ -102,7 +102,7 @@
               </tr>
             </thead>
             <tbody>
-                <tr class="table">
+                <tr class="table-info">
                 <td><div id='estado'></div></td>
                 <td><div id='fechaEs'></div></td>
               </tr>
@@ -112,35 +112,32 @@
         </div>
         </div>
         </section>
-
+     <br>
      <section>
-        <div class="container-sm" style="width: 10rem;">
-            <div class="d-flex">    
-            <form action="">       
+       <center>
+      <div class="container-sm" style="width: 40%;" >
+        
+        <div class="d-flex">
+        <select class="form-select" aria-label="Default select example"  id="selec_estados"  >
+                <option selected>Selecciona el nuevo estado</option>
+                <option value=1>En Tratamiento Casa</option>
+                <option value=2>En tratamiento Hospital</option>
+                <option value=3>En UCI</option>
+                <option value=4>Curado</option>
+                <option value=5>Fallecido</option>
+              </select>
+      <section>
+        <div class="container-sm" style="width: 10rem;" id='act_boton' >
+            <div class="d-flex">         
 
-        <button type="submit" class="btn btn-primary"  id='act_boton'>
+        <button type="submit" class="btn btn-primary"  >
                 Actualizar estado
             </button>
         </div>
         </div>
 
 
-     </section>   
-     <br>
-     <section>
-       <center>
-      <div class="container-sm" style="width: 20rem;">
-        
-        <div class="d-flex">
-        <select class="form-select" aria-label="Default select example"  id="selec_estados">
-                <option selected>Selecciona el nuevo estado</option>
-                <option value="1">En Tratamiento Casa</option>
-                <option value="2">En tratamiento Hospital</option>
-                <option value="3">En UCI</option>
-                <option value="3">Curado</option>
-                <option value="3">Fallecido</option>
-              </select>
-
+      </section>   
 
       </div>
       </div>
@@ -265,8 +262,7 @@ var Direcres= info[0][0][6];
 var DirecTrab = info[0][0][7];
 var Exam = info[0][0][8];
 var FechaEx = info[0][0][9];
-var Estado = info[0][0][10];
-var fechaes = info[0][0][11];
+
 $("#Nombre").text(Nombre);
 $("#Apellido").text(Apellido);
 $("#Cedula").text(Cedula);
@@ -276,25 +272,57 @@ $("#Direcres").text(Direcres);
 $("#DirecTrab").text(DirecTrab);
 $("#Exam").text(Exam);
 $("#FechaEx").text(FechaEx);
+Estado='';
+fechaes='';
+
+for(i=0;i<info[0].length;i++){
+  var Estado = info[0][i][10]+'<br>'+Estado;
+  var fechaes = info[0][i][11]+"\n"+fechaes;
+}
 $("#estado").text(Estado);
-$("#fechaEs").text(fechaes);
+  $("#fechaEs").text(fechaes);
 
 });
+};
+const Act = document.getElementById('act_boton');
+Act.addEventListener('click', (event) => {
 
+new_estado="";
+selec_estados=document.getElementById('selec_estados').value;
+if (selec_estados==1){
+new_estado="TC";
+};
+
+if(selec_estados==2){
+
+new_estado="TH";  
 
 };
 
-$("#tab_info").show();
-$("#tab_estados").show();
-$("#act_boton").show();
+if(selec_estados==3){
 
-const Act = document.getElementById('act_boton');
-Act.addEventListener('click', (event) => {
-$("#selec_estados").show();
-}); 
+new_estado="UCI";
 
+};
+
+if(selec_estados==4){
+
+new_estado="Curado";
+
+};
+
+if(selec_estados==5){
+
+new_estado="Muerte";  
+
+};
+
+
+$.post('act.php', {new_estado: new_estado, caso: info[0][0][0]}, function(data){
 });
 
+});
+});
 });
 
 </script>
