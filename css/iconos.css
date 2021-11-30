@@ -1,0 +1,45 @@
+.iconVerde{
+    background:green;
+    color:blue;
+    border:1px solid black;
+    font-weight:bold;
+    text-align:center;
+    border-radius:50%;
+    line-height:30px;
+    }
+.iconAmarillo{
+    background:yellow;
+    color:blue;
+    border:1px solid black;
+    font-weight:bold;
+    text-align:center;
+    border-radius:50%;
+    line-height:30px;
+    }
+.iconNaranja{
+    background:orange;
+    color:blue;
+    border:1px solid black;
+    font-weight:bold;
+    text-align:center;
+    border-radius:50%;
+    line-height:30px;
+    }
+.iconRosa{
+    background:pink;
+    color:blue;
+    border:1px solid black;
+    font-weight:bold;
+    text-align:center;
+    border-radius:50%;
+    line-height:30px;
+    }
+.iconRojo{
+    background:red;
+    color:blue;
+    border:1px solid black;
+    font-weight:bold;
+    text-align:center;
+    border-radius:50%;
+    line-height:30px;
+    }
