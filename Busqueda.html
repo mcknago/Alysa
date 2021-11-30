@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"> </script>
+	<meta charset="utf-8">
+	<title>Alysa</title>
+    <link rel="stylesheet" href="css/Registro.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="https://unpkg.com/esri-leaflet@3.0.3/dist/esri-leaflet.js"
+    integrity="sha512-kuYkbOFCV/SsxrpmaCRMEFmqU08n6vc+TfAVlIKjR1BPVgt75pmtU9nbQll+4M9PN2tmZSAgD1kGUCKL88CscA=="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.1.1/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+    crossorigin="">
+    <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.1/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-enHceDibjfw6LYtgWU03hke20nVTm+X5CRi9ity06lGQNtC9GkBNl/6LoER6XzSudGiXy++avi1EbIg9Ip4L1w=="
+    crossorigin=""></script>
+
+    <style> 
+    #map {
+      width: 100%;
+      height: 400px;
+      box-shadow: 5px 5px 5px #888;
+      border-radius: 20px;
+      opacity: 100%;
+    }
+  </style>
+  </head> 
+<body>
+  <header>
+    <div class="linea">
+        <div class='logo'>
+            <b>Alysa</b>
+            <a id='subtitulo'> Sistema para la gestión de casos de COVID-19 </a>
+        </div>
+    <button type="submit" class="btn_header" action="cerrar_sesion.php" method="POST" onclick="location='index.html'">Cerrar sesión</button>
+
+    </div>
+    <nav>
+        <a href="MapaGeneral.php" id="a1">Mapa General</a>
+        <a href="Busqueda.html" id="a2"  class = "active">Buscar usuario</a>
+    </nav>
+
+</header>
+          <div class="cover d-flex justify-content-center align-items-center flex-column">
+            <h1>
+                Gestión de Casos
+            </h1>
+            <p>
+                Actualiza el estado de tu caso
+                </p>
+        </div>
+    <section>
+        <div class="container mt-5 mb-5">
+
+        <label for="dato"><h3>Consulta tu caso</h3></label>
+        <div class="d-flex">
+        <select class="form-select" aria-label="Default select example" id="selec_dato">
+                <option selected>Selecciona tipo de dato</option>
+                <option value="1">Cédula</option>
+                <option value="2">ID caso</option>
+                <option value="3">Nombre</option>
+              </select>
+              
+        <input type="text" id="dato" />
+        <button type="submit" class="btn btn-primary" values="Enviar" id='Enviar'>
+            Enviar
+        </button>
+        </div>         
+        </div>    
+
+    </section>
+
+    <section>
+    <div class="container mt-5 mb-5" id="tab_info" >
+    <table class="table table-bordered" >
+      
+        <thead>
+            <tr class="table-info">
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Cédula</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Dirección Residencia</th>
+            <th scope="col">Dirección Trabajo</th>
+            <th scope="col">Resultado Examen</th>
+            <th scope="col">Fecha Examen</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            <tr class="table-info">
+            <td><div id='Nombre'></div></td>
+            <td><div id='Apellido'></div></td>
+            <td><div id='Cedula'></div></td>
+            <td><div id='Sexo'></div></td>
+            <td><div id='FechaNac'></div></td>
+            <td><div id='Direcres'></div></td>
+            <td><div id='DirecTrab'></div></td>
+            <td><div id='Exam'></div></td>
+            <td><div id='FechaEx'></div></td>
+          </tr>
+        </tbody>
+        
+      </table>
+    </div>
+    </section>
+
+    <section>
+        <div class="container" style="width: 30rem;" id="tab_estados" >
+        
+        <div class="d-flex" >
+        <table class="table table-bordered mr-2" >
+          
+            <thead>
+                <tr class="table-info">
+                <th scope="col">Estado</th>
+                <th scope="col">Fecha de modificación</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                <tr class="table-info">
+                <td><div id='estado'></div></td>
+                <td><div id='fechaEs'></div></td>
+              </tr>
+            </tbody>
+            
+          </table>
+        </div>
+        </div>
+        </section>
+     <br>
+     <div id="map"></div> 
+</body> 
+</html>
+
+<script type="text/javascript">
+$(document).ready(function() {  
+apiKey = "AAPKe31f66d7aec44ed6b5170bd321389ce72ipuUSa8Ru6xDEEUJA5IfFVY63rYpjCXm2vvkfQUPXE_WUtu2za5IsHd8_0D7koo";
+var map = L.map('map').setView([10.9778,-74.7989], 12);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+var Marcadores = L.featureGroup().addTo(map);
+
+const Enviar = document.getElementById('Enviar');
+Enviar.addEventListener('click', (event) => {
+  Marcadores.clearLayers();
+
+type_dato=document.getElementById('selec_dato').value;
+if (type_dato==1){
+
+
+$.post('consultaC.php', {dato: document.getElementById('dato').value}, function(data) {  
+
+info=[];
+
+
+Tabla= JSON.parse(data);
+
+info.push(Tabla);
+
+var Nombre = info[0][0][1];
+var Apellido = info[0][0][2];
+var Cedula = info[0][0][3];
+var Sexo = info[0][0][4];
+var FechaNac = info[0][0][5];
+var Direcres= info[0][0][6];
+var DirecTrab = info[0][0][7];
+var Exam = info[0][0][8];
+var FechaEx = info[0][0][9];
+var Estado = info[0][0][10];
+var fechaes = info[0][0][11];
+
+$("#Nombre").text(Nombre);
+$("#Apellido").text(Apellido);
+$("#Cedula").text(Cedula);
+$("#Sexo").text(Sexo);
+$("#FechaNac").text(FechaNac);
+$("#Direcres").text(Direcres);
+$("#DirecTrab").text(DirecTrab);
+$("#Exam").text(Exam);
+$("#FechaEx").text(FechaEx);
+$("#estado").text(Estado);
+$("#fechaEs").text(fechaes);
+Estado='';
+fechaes='';
+
+for(i=0;i<info[0].length;i++){
+  var Estado = info[0][i][10]+"\n"+Estado;
+  var fechaes = info[0][i][11]+"\n"+fechaes;
+}
+$("#estado").text(Estado);
+$("#fechaEs").text(fechaes);
+
+direRes=info[0][0][6];
+L.esri.Geocoding.geocode({apikey: apiKey }).text('Barranquilla, Colombia,CO, '+direRes).run(function (err, results, response) {
+  Marcadores.addLayer(L.marker(results.results[0].latlng).bindPopup('Residencia  <br>'+results.results[0].text).openPopup() );});
+
+direTrab=info[0][0][7];
+L.esri.Geocoding.geocode({apikey: apiKey }).text('Barranquilla, Colombia,CO, '+direTrab).run(function (err, results, response) {
+    Marcadores.addLayer(L.marker(results.results[0].latlng).bindPopup('Trabajo <br>'+results.results[0].text).openPopup() );});
+
+
+});
+};
+
+if(type_dato==2){
+
+$.post('consultaID.php', {dato: document.getElementById('dato').value}, function(data) {  
+
+info=[];
+
+
+Tabla= JSON.parse(data);
+
+info.push(Tabla); 
+
+var Nombre = info[0][0][1];
+var Apellido = info[0][0][2];
+var Cedula = info[0][0][3];
+var Sexo = info[0][0][4];
+var FechaNac = info[0][0][5];
+var Direcres= info[0][0][6];
+var DirecTrab = info[0][0][7];
+var Exam = info[0][0][8];
+var FechaEx = info[0][0][9];
+var Estado = info[0][0][10];
+var fechaes = info[0][0][11];
+
+$("#Nombre").text()=Nombre;
+$("#Apellido").text(Apellido);
+$("#Cedula").text(Cedula);
+$("#Sexo").text(Sexo);
+$("#FechaNac").text(FechaNac);
+$("#Direcres").text(Direcres);
+$("#DirecTrab").text(DirecTrab);
+$("#Exam").text(Exam);
+$("#FechaEx").text(FechaEx);
+$("#estado").text(Estado);
+$("#fechaEs").text(fechaes);
+
+Estado='';
+fechaes='';
+
+for(i=0;i<info[0].length;i++){
+  var Estado = info[0][i][10]+"\n"+Estado;
+  var fechaes = info[0][i][11]+"\n"+fechaes;
+}
+$("#estado").text(Estado);
+$("#fechaEs").text(fechaes);
+
+direRes=info[0][0][6];
+L.esri.Geocoding.geocode({apikey: apiKey }).text('Barranquilla, Colombia,CO, '+direRes).run(function (err, results, response) {
+  Marcadores.addLayer(L.marker(results.results[0].latlng).bindPopup('Residencia  <br>'+results.results[0].text).openPopup() );});
+
+direTrab=info[0][0][7];
+L.esri.Geocoding.geocode({apikey: apiKey }).text('Barranquilla, Colombia,CO, '+direTrab).run(function (err, results, response) {
+    Marcadores.addLayer(L.marker(results.results[0].latlng).bindPopup('Trabajo <br>'+results.results[0].text).openPopup() );});
+
+
+});
+
+
+
+};
+
+if(type_dato==3){
+
+$.post('consultaN.php', {dato: document.getElementById('dato').value}, function(data) {  
+info=[];
+
+
+Tabla= JSON.parse(data);
+
+info.push(Tabla);  
+
+var Nombre = info[0][0][1];
+var Apellido = info[0][0][2];
+var Cedula = info[0][0][3];
+var Sexo = info[0][0][4];
+var FechaNac = info[0][0][5];
+var Direcres= info[0][0][6];
+var DirecTrab = info[0][0][7];
+var Exam = info[0][0][8];
+var FechaEx = info[0][0][9];
+
+$("#Nombre").text(Nombre);
+$("#Apellido").text(Apellido);
+$("#Cedula").text(Cedula);
+$("#Sexo").text(Sexo);
+$("#FechaNac").text(FechaNac);
+$("#Direcres").text(Direcres);
+$("#DirecTrab").text(DirecTrab);
+$("#Exam").text(Exam);
+$("#FechaEx").text(FechaEx);
+Estado='';
+fechaes='';
+
+for(i=0;i<info[0].length;i++){
+  var Estado = info[0][i][10]+"\n"+Estado;
+  var fechaes = info[0][i][11]+"\n"+fechaes;
+}
+$("#estado").text(Estado);
+$("#fechaEs").text(fechaes);
+
+direRes=info[0][0][6];
+L.esri.Geocoding.geocode({apikey: apiKey }).text('Barranquilla, Colombia,CO, '+direRes).run(function (err, results, response) {
+  Marcadores.addLayer(L.marker(results.results[0].latlng).bindPopup('Residencia  <br>'+results.results[0].text).openPopup() );});
+
+direTrab=info[0][0][7];
+L.esri.Geocoding.geocode({apikey: apiKey }).text('Barranquilla, Colombia,CO, '+direTrab).run(function (err, results, response) {
+    Marcadores.addLayer(L.marker(results.results[0].latlng).bindPopup('Trabajo <br>'+results.results[0].text).openPopup() );});
+
+
+});
+};
+});
+});
+
+</script>
