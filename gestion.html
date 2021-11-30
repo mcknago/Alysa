@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"> </script>
 	<meta charset="utf-8">
 	<title>Alysa</title>
     <link rel="stylesheet" href="css/Registro.css">
@@ -35,7 +36,7 @@
 
         <label for="dato"><h3>Consulta tu caso</h3></label>
         <div class="d-flex">
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example" id="selec_dato">
                 <option selected>Selecciona tipo de dato</option>
                 <option value="1">Cédula</option>
                 <option value="2">ID caso</option>
@@ -102,8 +103,8 @@
             </thead>
             <tbody>
                 <tr class="table">
-                <td>@mdo</td>
-                <td>@mdo</td>
+                <td><div id='estado'></div></td>
+                <td><div id='fechaEs'></div></td>
               </tr>
             </tbody>
             
@@ -158,13 +159,16 @@
 </html>
 
 <script type="text/javascript">
-$(document).ready(function() {
+$(document).ready(function() {  
 
 const Enviar = document.getElementById('Enviar');
 Enviar.addEventListener('click', (event) => {
 
+type_dato=document.getElementById('selec_dato').value;
+if (type_dato==1){
 
-$.post('gestion.php', {dato: document.getElementById('dato').value}, function(data) {  
+
+$.post('consultaC.php', {dato: document.getElementById('dato').value}, function(data) {  
 
 info=[];
 
@@ -182,6 +186,8 @@ var Direcres= info[6];
 var DirecTrab = info[7];
 var Exam = info[8];
 var FechaEx = info[9];
+var Estado = info[10];
+var fechaes = info[11];
 
 $("#Nombre").text(Nombre);
 $("#Apellido").text(Apellido);
@@ -192,23 +198,107 @@ $("#Direcres").text(Direcres);
 $("#DirecTrab").text(DirecTrab);
 $("#Exam").text(Exam);
 $("#FechaEx").text(FechaEx);
+$("#estado").text(Estado);
+$("#fechaEs").text(fechaes);
+
+});
+};
+
+if(type_dato==2){
+
+$.post('consultaID.php', {dato: document.getElementById('dato').value}, function(data) {  
+
+info=[];
+
+
+Tabla= JSON.parse(data);
+
+info.push(Tabla); 
+
+var Nombre = info[1];
+var Apellido = info[2];
+var Cedula = info[3];
+var Sexo = info[4];
+var FechaNac = info[5];
+var Direcres= info[6];
+var DirecTrab = info[7];
+var Exam = info[8];
+var FechaEx = info[9];
+var Estado = info[10];
+var fechaes = info[11];
+
+$("#Nombre").text(Nombre);
+$("#Apellido").text(Apellido);
+$("#Cedula").text(Cedula);
+$("#Sexo").text(Sexo);
+$("#FechaNac").text(FechaNac);
+$("#Direcres").text(Direcres);
+$("#DirecTrab").text(DirecTrab);
+$("#Exam").text(Exam);
+$("#FechaEx").text(FechaEx);
+$("#estado").text(Estado);
+$("#fechaEs").text(fechaes);
+
+});
 
 
 
-$("#tab_info").show("slow");
-$("#tab_estados").show("slow");
-$("#act_boton").show("slow");
+};
+
+if(type_dato==3){
+
+$.post('consultaN.php', {dato: document.getElementById('dato').value}, function(data) {  
+
+info=[];
+
+
+Tabla= JSON.parse(data);
+
+info.push(Tabla);  
+
+var Nombre = info[1];
+var Apellido = info[2];
+var Cedula = info[3];
+var Sexo = info[4];
+var FechaNac = info[5];
+var Direcres= info[6];
+var DirecTrab = info[7];
+var Exam = info[8];
+var FechaEx = info[9];
+var Estado = info[10];
+var fechaes = info[11];
+
+$("#Nombre").text(Nombre);
+$("#Apellido").text(Apellido);
+$("#Cedula").text(Cedula);
+$("#Sexo").text(Sexo);
+$("#FechaNac").text(FechaNac);
+$("#Direcres").text(Direcres);
+$("#DirecTrab").text(DirecTrab);
+$("#Exam").text(Exam);
+$("#FechaEx").text(FechaEx);
+$("#estado").text(Estado);
+$("#fechaEs").text(fechaes);
+
+});
+
+};
+
+$("#tab_info").show();
+$("#tab_estados").show();
+$("#act_boton").show();
 
 const Act = document.getElementById('act_boton');
 Act.addEventListener('click', (event) => {
 
 
-$("#selec_estados").show("slow");
+
+
+
+$("#selec_estados").show();
 
 
 }); 
-
-});
 
 });
 
