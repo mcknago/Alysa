@@ -7,11 +7,11 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 	<script	src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.js"></script>
 </head>
 <body>
 	
 <header>
-
     <div class="linea">
 		<div class='logo'>
 			<b>Alysa</b>
@@ -22,7 +22,24 @@
 	</div>
 </header>	
 
-</body>
+<section class="graficaXY">
+	<canvas id="XY"></canvas>
+</section>
+
+<section class="graficaPie">
+	<canvas id="myChart" class="myChart"></canvas>
+</section>
+
+<section class="graficaPie">
+	<canvas id="myChart2" class="myChart"></canvas>
+</section>
+
+<section class="graficaPie">
+	<canvas id="myChart3" class="myChart"></canvas>
+</section>
 
 </body>
+
+<script src="grafica_pie.js"></script>
+<script src="grafica_XY.js"></script>
 </html>
