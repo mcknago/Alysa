@@ -63,7 +63,8 @@ body{
     padding: 0;
 }
 h1{
-	display: inline-block;
+	display: inline;
+	margin-left: 15%;
 	color: #d9d9d9;
 	font: 300% "didot";
 	text-align: center;
@@ -164,10 +165,11 @@ header{
 }
 
 .btn_header{
-	
+	display: inline-block;
+	float: right;
+	margin-top: 1%;
 	width: 15%;
 	text-align: center;
-	padding: 10px 2%;
 	text-decoration: none;
 	font-weight: bold;
 	border-radius: 5px;
@@ -176,7 +178,6 @@ header{
 	color: #d9d9d9;
 	border:  none;
 	box-sizing: border-box;
-	margin-right: 5%;
 }
 
 .btn_header:hover {
