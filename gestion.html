@@ -197,6 +197,15 @@ $("#Exam").text(Exam);
 $("#FechaEx").text(FechaEx);
 $("#estado").text(Estado);
 $("#fechaEs").text(fechaes);
+Estado='';
+fechaes='';
+
+for(i=0;i<info[0].length;i++){
+  var Estado = info[0][i][10]+'<br>'+Estado;
+  var fechaes = info[0][i][11]+"\n"+fechaes;
+}
+$("#estado").text(Estado);
+$("#fechaEs").text(fechaes);
 
 });
 };
@@ -233,6 +242,15 @@ $("#Direcres").text(Direcres);
 $("#DirecTrab").text(DirecTrab);
 $("#Exam").text(Exam);
 $("#FechaEx").text(FechaEx);
+$("#estado").text(Estado);
+$("#fechaEs").text(fechaes);
+Estado='';
+fechaes='';
+
+for(i=0;i<info[0].length;i++){
+  var Estado = info[0][i][10]+'<br>'+Estado;
+  var fechaes = info[0][i][11]+"\n"+fechaes;
+}
 $("#estado").text(Estado);
 $("#fechaEs").text(fechaes);
 
