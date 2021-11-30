@@ -73,7 +73,7 @@
                     L.esri.Geocoding.geocode({apikey: apiKey }).text('Barranquilla, Colombia,CO, '+direTrab).run(function (err, results, response) {
                         Marcadores.addLayer(L.marker(results.results[0].latlng,{icon: negativo}).bindPopup('Trabajo <br>'+results.results[0].text) );});
                 }
-                if(Direcciones[i]['estado']=='Positivo'){
+                if(Direcciones[i]['estado']=='Positivo'|| Direcciones[i]['estado']=='TH' || Direcciones[i]['estado']=='TC' ){
                     direRes=Direcciones[i]['direcRes'];
                     L.esri.Geocoding.geocode({apikey: apiKey }).text('Barranquilla, Colombia,CO, '+direRes).run(function (err, results, response) {
                         Marcadores.addLayer(L.marker(results.results[0].latlng,{icon: PTrat}).bindPopup('Residencia  <br>'+results.results[0].text) );});
@@ -91,7 +91,7 @@
                     L.esri.Geocoding.geocode({apikey: apiKey }).text('Barranquilla, Colombia,CO, '+direTrab).run(function (err, results, response) {
                         Marcadores.addLayer(L.marker(results.results[0].latlng,{icon: PUci}).bindPopup('Trabajo <br>'+results.results[0].text) );});
                 }
-                if(Direcciones[i]['estado']=='Cura'){
+                if(Direcciones[i]['estado']=='Curado'){
                     direRes=Direcciones[i]['direcRes'];
                     L.esri.Geocoding.geocode({apikey: apiKey }).text('Barranquilla, Colombia,CO, '+direRes).run(function (err, results, response) {
                         Marcadores.addLayer(L.marker(results.results[0].latlng,{icon: PCura}).bindPopup('Residencia  <br>'+results.results[0].text) );});
