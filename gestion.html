@@ -54,7 +54,7 @@
 
     <section>
     <div class="container mt-5 mb-5">
-    <table class="table table-bordered" hidden id="tab_info">
+    <table class="table table-bordered"  id="tab_info">
       
         <thead>
             <tr class="table-info">
@@ -92,7 +92,7 @@
         <div class="container" style="width: 30rem;">
         
         <div class="d-flex">
-        <table class="table table-bordered mr-2" hidden id="tab_estados">
+        <table class="table table-bordered mr-2"  id="tab_estados">
           
             <thead>
                 <tr class="table-info">
@@ -118,7 +118,7 @@
             <div class="d-flex">    
             <form action="">       
 
-        <button type="submit" class="btn btn-primary" hidden id='act_boton'>
+        <button type="submit" class="btn btn-primary"  id='act_boton'>
                 Actualizar estado
             </button>
         </div>
@@ -132,7 +132,7 @@
       <div class="container-sm" style="width: 20rem;">
         
         <div class="d-flex">
-        <select class="form-select" aria-label="Default select example" hidden id="selec_estados">
+        <select class="form-select" aria-label="Default select example"  id="selec_estados">
                 <option selected>Selecciona el nuevo estado</option>
                 <option value="1">En Tratamiento Casa</option>
                 <option value="2">En tratamiento Hospital</option>
@@ -177,17 +177,17 @@ Tabla= JSON.parse(data);
 
 info.push(Tabla);
 
-var Nombre = info[1];
-var Apellido = info[2];
-var Cedula = info[3];
-var Sexo = info[4];
-var FechaNac = info[5];
-var Direcres= info[6];
-var DirecTrab = info[7];
-var Exam = info[8];
-var FechaEx = info[9];
-var Estado = info[10];
-var fechaes = info[11];
+var Nombre = info[0][0][1];
+var Apellido = info[0][0][2];
+var Cedula = info[0][0][3];
+var Sexo = info[0][0][4];
+var FechaNac = info[0][0][5];
+var Direcres= info[0][0][6];
+var DirecTrab = info[0][0][7];
+var Exam = info[0][0][8];
+var FechaEx = info[0][0][9];
+var Estado = info[0][0][10];
+var fechaes = info[0][0][11];
 
 $("#Nombre").text(Nombre);
 $("#Apellido").text(Apellido);
@@ -215,19 +215,19 @@ Tabla= JSON.parse(data);
 
 info.push(Tabla); 
 
-var Nombre = info[1];
-var Apellido = info[2];
-var Cedula = info[3];
-var Sexo = info[4];
-var FechaNac = info[5];
-var Direcres= info[6];
-var DirecTrab = info[7];
-var Exam = info[8];
-var FechaEx = info[9];
-var Estado = info[10];
-var fechaes = info[11];
+var Nombre = info[0][0][1];
+var Apellido = info[0][0][2];
+var Cedula = info[0][0][3];
+var Sexo = info[0][0][4];
+var FechaNac = info[0][0][5];
+var Direcres= info[0][0][6];
+var DirecTrab = info[0][0][7];
+var Exam = info[0][0][8];
+var FechaEx = info[0][0][9];
+var Estado = info[0][0][10];
+var fechaes = info[0][0][11];
 
-$("#Nombre").text(Nombre);
+$("#Nombre").text()=Nombre;
 $("#Apellido").text(Apellido);
 $("#Cedula").text(Cedula);
 $("#Sexo").text(Sexo);
@@ -248,7 +248,7 @@ $("#fechaEs").text(fechaes);
 if(type_dato==3){
 
 $.post('consultaN.php', {dato: document.getElementById('dato').value}, function(data) {  
-
+console.log(data);
 info=[];
 
 
@@ -256,18 +256,17 @@ Tabla= JSON.parse(data);
 
 info.push(Tabla);  
 
-var Nombre = info[1];
-var Apellido = info[2];
-var Cedula = info[3];
-var Sexo = info[4];
-var FechaNac = info[5];
-var Direcres= info[6];
-var DirecTrab = info[7];
-var Exam = info[8];
-var FechaEx = info[9];
-var Estado = info[10];
-var fechaes = info[11];
-
+var Nombre = info[0][0][1];
+var Apellido = info[0][0][2];
+var Cedula = info[0][0][3];
+var Sexo = info[0][0][4];
+var FechaNac = info[0][0][5];
+var Direcres= info[0][0][6];
+var DirecTrab = info[0][0][7];
+var Exam = info[0][0][8];
+var FechaEx = info[0][0][9];
+var Estado = info[0][0][10];
+var fechaes = info[0][0][11];
 $("#Nombre").text(Nombre);
 $("#Apellido").text(Apellido);
 $("#Cedula").text(Cedula);
@@ -282,6 +281,7 @@ $("#fechaEs").text(fechaes);
 
 });
 
+
 };
 
 $("#tab_info").show();
@@ -290,14 +290,7 @@ $("#act_boton").show();
 
 const Act = document.getElementById('act_boton');
 Act.addEventListener('click', (event) => {
-
-
-
-
-
 $("#selec_estados").show();
-
-
 }); 
 
 });

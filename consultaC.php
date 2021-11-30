@@ -1,9 +1,9 @@
 <?php 
-    include 'clave.php';
+    include 'Config.php';
     if(isset($_POST['dato'])){
     $conexion = new mysqli($Host, $Usuario, $Clave, 'Alysa');
-
-    $sql = "SELECT * FROM casos, estados WHERE cedula = $dato";
+    $dato=$_POST['dato'];
+    $sql = "SELECT * FROM casos, estados WHERE cedula = $dato AND casos.id=estados.idCaso order by estados.IDestado DESC;";
     $result = $conexion->query($sql);
 
 

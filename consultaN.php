@@ -1,15 +1,14 @@
 <?php 
-    include 'clave.php';
+    include 'Config.php';
     if(isset($_POST['dato'])){
     $conexion = new mysqli($Host, $Usuario, $Clave, 'Alysa');
-
-    $sql = "SELECT * FROM casos, estados WHERE nombre = $dato";
+    $dato=$_POST['dato'];
+    $sql = "SELECT * FROM casos, estados WHERE casos.nombre = '$dato' AND casos.id=estados.idCaso order by estados.IDestado DESC;";
     $result = $conexion->query($sql);
-
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-          $Tabla[] = array($row['id'], $row['nombre'], $row['apellido'],$row['cedula'], $row['sexo'], $row['FechaNacimiento'],
+          $Tabla[] = array($row['id'], $row['nombre'], $row['apellido'],$row['cedula'], $row['sexo'], $row['fechaNac'],
           $row['direcRes'], $row['direcTrab'], $row['exam'], $row['fechaEx'], $row['estado'], $row['fecha'],);
         };
       } else {
