@@ -44,7 +44,7 @@ function direccion(){
 				header('location: administracion.html');
 				break;
 			case 2:
-				header('location: inicio_sesion.html');
+				header('location: MapaGeneral.php');
 				break;
 			case 3:
 				header('location: Registro.html');
