@@ -39,6 +39,22 @@
     
 </head>
 <body>
+	
+	<header>
+        <div class="linea">
+            <div class='logo'>
+                <b>Alysa</b>
+                <a> Sistema para la gestión de casos de COVID-19 </a>
+            </div>
+        <button type="submit" class="btn_header" action="cerrar_sesion.php" method="POST" onclick="location='index.html'">Cerrar sesión</button>
+
+        </div>
+        <nav>
+            <a href="Registro.html" id="a1" class = "active">Registro de caso</a>
+            <a href="gestion.html" id="a2">Gestionar caso</a>
+        </nav>
+
+	</header>
     <div>
 
     <section id="formulario">
