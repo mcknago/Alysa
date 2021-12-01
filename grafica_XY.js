@@ -1,4 +1,5 @@
 var fechas=[];
+var fechas=[];
 var muertos=[];
 var casos=[];
 var llamado=true;
@@ -7,16 +8,21 @@ $.post('grafica_XY.php', {llamado}, function(datos){
 var data = JSON.parse(datos);
 
  for(var i=0; i<data.length;i++){
- 	 console.log(data[i][2]);
+ 	fechas.push(data[i][0]);
  	if(data[i][2]=="Positivo"){
-	 	fechas.push(data[i][0]);
 	 	casos.push(data[i][1]);
+	 	muertos.push(0);
 	 	}else if(data[i][2]=="Muerte"){
-	 	fechas.push(data[i][0]);
+	 	casos.push(0);
 	 	muertos.push(data[i][1]);
+ 		}else{
+	 		casos.push(0);
+		 	muertos.push(0);
  	}
  } 
-
+console.log(fechas);
+console.log(casos);
+console.log(muertos);
 const casosG = {
     label: "Casos registrados",
     data: casos, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
