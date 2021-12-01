@@ -321,6 +321,7 @@ new_estado="Muerte";
 
 
 $.post('act.php', {new_estado: new_estado, caso: info[0][0][0]}, function(data){
+	console.log(data);
 });
 
 });
