@@ -8,5 +8,5 @@
     $sql = "INSERT INTO `estados` (estado,fecha,idCaso)
     VALUES('$new_estado',NOW(),'$Caso')";
     $conexion->query($sql);
-    echo $new_estado;}
+    echo $conexion;}
 ?>
