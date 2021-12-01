@@ -9,7 +9,7 @@
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-          $Tabla[] = array($row['id'], $row['nombre'], $row['apellido'],$row['cedula'], $row['sexo'], $row['FechaNacimiento'],
+          $Tabla[] = array($row['id'], $row['nombre'], $row['apellido'],$row['cedula'], $row['sexo'], $row['fechaNac'],
           $row['direcRes'], $row['direcTrab'], $row['exam'], $row['fechaEx'], $row['estado'], $row['fecha'],);
         };
       } else {
